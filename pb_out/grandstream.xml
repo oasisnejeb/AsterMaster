@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AddressBook>
+	<Contact>
+		<FirstName>Василий Пупкин</FirstName>
+		<Phone>
+			<phonenumber>21014</phonenumber>
+			<accountindex>1</accountindex>
+		</Phone>
+		<Groups>
+			<groupid>1</groupid>
+		</Groups>
+	</Contact><Contact>
+		<FirstName>Александр Скобельцын</FirstName>
+		<Phone>
+			<phonenumber>21013</phonenumber>
+			<accountindex>1</accountindex>
+		</Phone>
+		<Groups>
+			<groupid>1</groupid>
+		</Groups>
+	</Contact>
+</AddressBook>

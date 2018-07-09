@@ -1,0 +1,29 @@
+#Autoprovisioning common data for template rendering
+
+#Sip settings
+sip_account1_display_name=John Doe
+sip_account1_enable=1
+sip_account1_register=1
+sip_account1_reg_expiration=60
+sip_account1_password=MyySIPVeryStr0ngP@ss
+sip_accoun1_userid=21011 
+sip_accoun1_authid=21011 
+sip_account1_localsipport=5060
+sip_account1_server=sip.address.ru
+sip_account1_dns_mode=0 
+sip_account1_accname=Acc1Config 
+
+#Web and display settings
+display_language=ru
+admin_password=MyyStrongP@ss
+time_format=1
+
+#Provisioning settings
+dhcp_option_60=Grandstream GXP1628
+config_server_address=config.address.ru
+
+#Phonebook settings
+phonebook_source_type=1
+phonebook_source_path=config.address.ru/phonebook
+phonebook_download_interval=5
+phonebook_remove_old=1

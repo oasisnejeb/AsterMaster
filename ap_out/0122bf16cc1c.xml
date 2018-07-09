@@ -1,0 +1,19 @@
+<?xml version="" encoding="" ?>
+<gs_provision version="1">
+  <config version="1">
+    <P271>1</P271>
+    <P270>21013</P270>
+    <P35>21013</P35>
+    <P36>21013</P36>
+    <P34>a.skobeltsin!@#@$!@231><</P34>
+    <P3>Александр Скобельцын</P3>
+   <P47>sip.address.ru</P47>
+   <P401>0</P401>
+   <P2>MyyStrongP@ss</P2>
+   <P1362>ru</P1362>
+   <P212>0</P212>
+   <P330>1</P330>
+   <P331>http://10.1.1.50/provisioning/grandstream</P331>
+   <P333>30</P333>
+  </config>
+</gs_provision>

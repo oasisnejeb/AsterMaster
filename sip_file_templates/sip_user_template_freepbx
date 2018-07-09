@@ -1,0 +1,28 @@
+#template for sip user for realtime mysql table filling
+[user]
+dtmfmode=rfc2833
+canreinvite=no
+context=from-internal
+host=dynamic
+trustrpid=yes
+sendrpid=no
+type=friend
+nat=no
+port=5060
+qualify=yes
+qualifyfreq=60
+transport=udp
+avpf=no
+icesupport=no
+dtlsenable=no
+dtlsverify=no
+dtlssetup=actpass
+encryption=no
+callgroup=
+pickupgroup=
+disallow=
+allow=
+dial=SIP/USR_VAR
+mailbox=USR_VAR@device
+account=USR_VAR
+callerid=device <USR_VAR>

@@ -1,0 +1,141 @@
+####################################################
+###Config file for main script
+###Parameters must be specified as key=value pairs
+### i.e. backend=freepbx or create_autoprov=1
+####################################################
+
+###Storage settings
+### That is where we pick up the data
+### Currently only FreeIpa storage is supported
+storage=freeipa
+
+###As for now, only simple login is suported
+###(via providing login ans password)
+storage_login_type=simple_login
+
+###Login credentials
+storage_login=admin
+storage_password=danzelGOD1
+storage_host=172.23.6.101
+
+###Specific storage login options
+###For example, domain name for freeipa or AD
+###or database name for DB storage
+storage_domain=test.local
+
+###Specific storage search options
+###These parameters are optional
+###if they would not be specified
+###script will use default
+###default for users_basedn for freeipa is "cn=users,cn=accounts,DN_DOMAIN"
+###default for hosts_basedn for freeipa is "cn=computers,cn=accounts,DN_DOMAIN"
+###default for hbac_basedn for freeipa is "cn=hbac,DN_DOMAIN"
+### where DN_DOMAIN is distinguished name made from "backend_domain"
+### parameter value
+;users_basedn=cn=users,cn=accounts,dc=test,dc=local
+;hosts_basedn=cn=computers,cn=accounts,dc=test,dc=local
+;hbac_basedn=cn=hbac,dc=test,dc=local
+
+###Parameters lookup options
+### i.e group of users for freeipa or AD
+### or field value for DB table that stores users
+### The same for hosts or another specific params
+
+#Field where user password is stored
+user_pass_field=employeeNumber
+
+###Below lookup parameters are valid only for directory storages
+###(freeipa or AD)
+#If specified, only users from this group will be picked up from storage
+users_group=group1
+#If specified, only hosts from this group will be picked up from storage
+hosts_group=sipgroup
+
+###This parameter valid for freeipa storage
+###hbac parameters used for binding user(as phone number)
+###and host(as sip device) for provisioning purposes
+hbac_service_name=voip
+
+###Path to template file where default sip peer parameters live
+###Script uses it when creates new user
+###It supports key=value parameters mechanism too and
+###is nothing more than example of sip user from sip.conf file
+###As example
+###[user]
+###dtmfmode=rfc2833
+###allow=alaw,ulaw
+###host=dynamic
+###Supports templates also i.e. [user](my_tpl)
+###Default values for freepbx new user live at
+###/home/project/sip_file_templates/sip_user_template_freepbx 
+user_template_path=/home/project/sip_file_templates/sip_user_template_freepbx
+
+
+backend=freepbx
+###These parameters are for freepbx backend
+###They will be read only if freepbx is chosen as backend
+freepbx_mysql_host=127.0.0.1
+freepbx_mysql_port=3306
+freepbx_mysql_user=asteriskuser
+freepbx_mysql_pass=danzelGOD1
+freepbx_mysql_db=asterisk
+
+###These parameters are valid for asterisk backend
+###They will be read only if asterisk is chosen as backend
+
+###Header template - thats is read-only template
+###its contents will be placed before those, generated from
+###user data and template from user_template_path
+###Place in this file your common sip settings and templates
+header_template_path=/home/project/sip_header_template
+
+###Result sip.conf file path
+sip_filepath=/etc/asterisk/sip_custom.conf
+
+###Settings below are responsible for creating phonebooks
+###Script can create phonebooks from templates that are stored under
+###directory from "phonebook_template_dir" parameter. Script uses Jinja2
+### template engine, so templates must supply its format.
+###It pastes than xml files to directory from "phonebook_output_dir" parameter.
+
+###Create phonebooks or not.
+create_phonebooks=1
+
+
+phonebook_template_dir=/home/project/pb_templates
+phonebook_output_dir=/home/project/pb_out
+
+###Dict with addidtional parameters to be passed into template engine to render template
+pb_vars = {"accountindex" : 1, "group" : 1, "xver" : "1.0", "encoding" : "UTF-8"}
+
+###Settings below are responsible for creating autoprovisioning files.
+###Script picks up templastes from "autoprov_template_dir" parameter. Script uses Jinja2
+###template engine, so templates must supply its format.
+###Templates, that begin from "common" are will be processing anyway. We treat them as
+###basic templates for provisioning phones with default parameters.
+###Processing another template files depends on what devices we need to create provisioning.
+###Script will pick up platform type when executing hosts lookup as well host mac-address.
+###Script firstly will try to find template file named as "mac_address.tpl",
+###where mac_address is device mac. Then it will try to find "platform.tpl", for
+###example "grandstream.tpl" or "d-link.tpl". If none found script gaves up trying to find
+###template and goes to next device.
+###It pastes than xml files to directory from "autoprov_output_dir" parameter.
+
+###Create autoprov files or not.
+create_autoprov=1
+
+autoprov_template_dir=/home/project/ap_templates
+autoprov_output_dir=/home/project/ap_out
+
+###Provisioning data file path stores data as key=value pairs.
+###By default it is autoprov_data file in project root.
+###It contains parameters for template rendering of provisioning templates
+###that you suppose must be common for all devices (such as time sync parameters, codecs, etc.)
+###It by default contains default value for much parameters, that you obviously,
+###would want to change(for example sip server address, admin password for device,
+###another security parameters etc.)
+prov_data_file=/home/project/autoprov_data
+
+###For autoprovision files creating we need to bind platform of device
+###to template for rendering, result file name and default data for template
+ap_mappings_file=/home/project/ap_mappings

@@ -1,0 +1,13 @@
+#Platform of phones mapping
+
+[grandstream]
+template_file=grandstream.tpl
+xmlfile=cfgMAC.xml
+data_file=grandstream.data
+init_cf_version=2
+
+[d-link]
+template_file=d-link.tpl
+xmlfile=MAC.xml
+data_file=d-link.data
+init_cf_version=2.0004
