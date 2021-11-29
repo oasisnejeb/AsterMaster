@@ -43,7 +43,7 @@ pyOpenSSL==0.13.1
 pyparsing==1.5.6
 python-cjson==1.2.1
 python-daemon==1.6
-python-ldap==3.1.0
+python-ldap==3.4.0
 pytz===2012d
 pyudev==0.15
 pyxattr==0.5.1
