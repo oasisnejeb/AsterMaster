@@ -14,7 +14,7 @@ FreeIPA-JSON==0.1
 greenlet==0.4.2
 idna==2.7
 iniparse==0.4
-ipython==5.7.0
+ipython==7.16.3
 ipython-genutils==0.2.0
 javapackages==1.0.0
 Jinja2==2.10
