@@ -1,7 +1,7 @@
 backports.shutil-get-terminal-size==1.0.0
 backports.ssl-match-hostname==3.4.0.2
 callback-daemon===1.1.prod
-certifi==2018.4.16
+certifi==2022.12.7
 chardet==3.0.4
 configobj==4.7.2
 configparser==3.5.0
